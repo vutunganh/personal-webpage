@@ -3,10 +3,13 @@
 use strict;
 use warnings;
 
-sub find_all_html_files {
+opendir my $dh, ".";
+my @dir_content = readdir $dh;
+closedir $dh;
+
+my @files = ();
+
+foreach (@dir_content) {
+  push @files, $_ if /.html$/;
 }
 
-sub head {
-  open my $fh, "<", " include/head.html" or die "Couldn't open head.html";
-  
-}
