@@ -1,0 +1,42 @@
+body{
+  background-color: #F5DEB3;
+  margin: 40px auto;
+  max-width: 700px;
+  line-height: 1.6;
+  font-size: 18px;
+  color: #444;
+  padding: 0 10px;
+}
+
+h1, h2, h3{
+  line-height: 1;
+}
+
+.general-btn {
+  border: 0;
+  background-color: #F5DEB3;
+  color: #444;
+}
+
+#main-menu-button {
+  text-decoration: none;
+}
+
+#main-menu-button:active {
+  text-decoration: none;
+}
+
+.site-header-menu {
+  display: none;
+}
+
+.site-header-without-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.site-header #main-menu-button {
+  padding-top: 0;
+  font-size: 30px;
+}
