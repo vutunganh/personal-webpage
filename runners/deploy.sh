@@ -28,7 +28,7 @@ while [ $# -gt 0 ]; do
 done
 
 mkdir deploy
-cp *.html *.css *.js include/header.js deploy
+cp *.html *.css *.js include/*.js deploy
 
 ./runners/deploy.pl
 
