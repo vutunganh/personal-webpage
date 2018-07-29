@@ -1,7 +1,7 @@
 #!/bin/bash
 # Wraps up the pages and deploys them.
 
-source runners/properties.sh
+source ./runners/properties.sh
 
 DRY_RUN=false
 DONT_DELETE=false
@@ -9,18 +9,18 @@ DONT_DELETE=false
 while [ $# -gt 0 ]; do
   key="$1"
   case "${key}" in
-    --help)
+    --help|-h)
       echo "Usage: $0"
       echo "Arguments:"
-      echo "  --dry-run        package the files but don't copy them to the server"
-      echo "  --dont-delete    don't delete the deploy folder"
+      echo "  -r|--dry-run        package the files but don't copy them to the server"
+      echo "  -d|--dont-delete    don't delete the deploy folder"
       exit 1
       ;;
-    --dry-run)
+    --dry-run|-r)
       DRY_RUN=true
       shift
       ;;
-    --dont-delete)
+    --dont-delete|-d)
       DONT_DELETE=true
       shift
       ;;
@@ -28,9 +28,16 @@ while [ $# -gt 0 ]; do
 done
 
 mkdir deploy
-cp *.html *.css *.js deploy
+cp *.html *.css *.js include/header.js deploy
 
 ./runners/deploy.pl
+
+if [ $? -ne 0 ]; then
+  echo "Perl failed";
+  exit 1;
+fi
+
+rm deploy/*.bak
 
 if [ ${DRY_RUN} = false ]; then
   scp deploy/* "${USERNAME}"@"${SERVER_NAME}":"${TARGET_PATH}"
