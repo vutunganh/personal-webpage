@@ -39,12 +39,12 @@ fi
 
 rm deploy/*.bak
 
-chmod 444 deploy/*
-
 if [ ${DRY_RUN} = false ]; then
   scp deploy/* "${USERNAME}"@"${SERVER_NAME}":"${TARGET_PATH}"
 fi
 
 if [ ${DONT_DELETE} = false ]; then
   rm -r deploy
+else
+  chmod 444 deploy/*
 fi
