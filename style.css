@@ -1,10 +1,15 @@
+:root {
+  --primary-color: #F5DEB3;
+  --text-color: #444;
+}
+
 body {
-  background-color: #F5DEB3;
+  background-color: var(--primary-color);
   margin: 40px auto;
   max-width: 700px;
-  line-height: 1.6;
+  line-height: 1.5;
   font-size: 18px;
-  color: #444;
+  color: var(--text-color);
   padding: 0 10px;
 }
 
@@ -14,8 +19,8 @@ h1, h2, h3 {
 
 .general-btn {
   border: 0;
-  background-color: #F5DEB3;
-  color: #444;
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .site-header-menu {
