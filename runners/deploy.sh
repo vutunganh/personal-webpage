@@ -41,6 +41,7 @@ rm deploy/*.bak
 
 if [ ${DRY_RUN} = false ]; then
   scp deploy/* "${USERNAME}"@"${SERVER_NAME}":"${TARGET_PATH}"
+  scp -r images "${USERNAME}"@"${SERVER_NAME}":"${TARGET_PATH}"
 fi
 
 if [ ${DONT_DELETE} = false ]; then
