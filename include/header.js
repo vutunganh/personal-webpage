@@ -1,7 +1,8 @@
 function getSiteHeader() {
-  var arr = document.getElementsByClassName("site-header-menu");
+  var siteHeaderMenu = "site-header-menu";
+  var arr = document.getElementsByClassName(siteHeaderMenu);
   if (arr.length !== 1) {
-    throw new Error("Multiple elements with class 'site-header-menu'!");
+    throw new Error("Multiple elements with class '" + siteHeaderMenu + "'!");
   }
 
   return arr[0];
