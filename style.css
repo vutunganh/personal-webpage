@@ -6,7 +6,7 @@
 body {
   background-color: var(--primary-color);
   margin: 40px auto;
-  max-width: 700px;
+  max-width: 750px;
   line-height: 1.5;
   font-size: 18px;
   color: var(--text-color);
@@ -23,22 +23,22 @@ h1, h2, h3 {
   color: var(--text-color);
 }
 
-.site-header-menu {
+#site-header-menu {
   display: none;
 }
 
-.site-header-without-menu {
+#site-header-without-menu {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.site-header #main-menu-button {
+#site-header #main-menu-button {
   text-decoration: none;
   padding-top: 0;
   font-size: 12px;
 }
 
-.site-header #main-menu-button:active {
+#site-header #main-menu-button:active {
   text-decoration: none;
 }

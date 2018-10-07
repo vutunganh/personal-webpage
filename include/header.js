@@ -1,11 +1,11 @@
 function getSiteHeader() {
   var siteHeaderMenu = "site-header-menu";
-  var arr = document.getElementsByClassName(siteHeaderMenu);
-  if (arr.length !== 1) {
-    throw new Error("Multiple elements with class '" + siteHeaderMenu + "'!");
+  var el = document.getElementById(siteHeaderMenu);
+  if (!el) {
+    throw "Couldn't find header!";
   }
 
-  return arr[0];
+  return el;
 }
 
 function toggleMenu() {
