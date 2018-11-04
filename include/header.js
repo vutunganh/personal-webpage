@@ -1,20 +1,23 @@
 function getSiteHeader() {
-  var siteHeaderMenu = "site-header-menu";
+  var siteHeaderMenu = 'site-header-menu';
   var el = document.getElementById(siteHeaderMenu);
   if (!el) {
-    throw "Couldn't find header!";
+    throw 'Couldn\'t find header!';
   }
 
   return el;
 }
 
+var siteHeader = getSiteHeader();
+siteHeader.setAttribute('style', 'display: none');
+
 function toggleMenu() {
   var siteHeader = getSiteHeader();
   var siteHeaderDisplay = siteHeader.style.display;
-  if (siteHeaderDisplay !== "block") {
-    siteHeader.setAttribute("style", "display: block");
+  if (siteHeaderDisplay !== 'block') {
+    siteHeader.setAttribute('style', 'display: block');
   } else {
-    siteHeader.setAttribute("style", "display: none");
+    siteHeader.setAttribute('style', 'display: none');
   }
 }
 
