@@ -13,6 +13,10 @@ body {
   padding: 0 10px;
 }
 
+hr {
+  border-color: black;
+}
+
 h1, h2, h3 {
   line-height: 1;
 }
@@ -38,3 +42,4 @@ h1, h2, h3 {
 #site-header #main-menu-button:active {
   text-decoration: none;
 }
+
