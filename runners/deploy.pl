@@ -3,26 +3,9 @@
 use strict;
 use warnings;
 
-opendir my $dh, "deploy";
-my @dir_content = readdir $dh;
-closedir $dh;
+use File::Find;
 
-my @html_files = ();
-
-sub find_html_files {
-  my $dir_name = $_[0];
-  opendir my $dh, $dirname;
-  my @dir_content = readdir $dh;
-  foreach (@dir_content) {
-    push @html_files, "deploy/" . $_ if/.html$/;
-    if (-d )
-  }
-  close $dh;
-}
-
-foreach (@dir_content) {
-  push @html_files, "deploy/" . $_ if /.html$/;
-}
+my @html_files = File::Find::Rule->file()->name('*.html')->in('pages');
 
 my $head = undef;
 {

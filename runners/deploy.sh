@@ -10,10 +10,10 @@ while [ $# -gt 0 ]; do
   key="$1"
   case "${key}" in
     --help|-h)
-      echo "Usage: $0"
+      echo "Usage: $0."
       echo "Arguments:"
-      echo "  -r|--dry-run        package the files but don't copy them to the server"
-      echo "  -d|--dont-delete    don't delete the deploy folder"
+      echo "  -r|--dry-run        package the files but don't copy them to the server."
+      echo "  -d|--dont-delete    don't delete the deploy folder."
       exit 1
       ;;
     --dry-run|-r)
@@ -28,7 +28,7 @@ while [ $# -gt 0 ]; do
 done
 
 mkdir deploy
-cp *.html *.css *.js include/*.js deploy
+cp -r pages/* *.css *.js include/*.js deploy
 
 ./runners/deploy.pl
 
