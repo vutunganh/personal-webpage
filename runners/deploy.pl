@@ -9,6 +9,17 @@ closedir $dh;
 
 my @html_files = ();
 
+sub find_html_files {
+  my $dir_name = $_[0];
+  opendir my $dh, $dirname;
+  my @dir_content = readdir $dh;
+  foreach (@dir_content) {
+    push @html_files, "deploy/" . $_ if/.html$/;
+    if (-d )
+  }
+  close $dh;
+}
+
 foreach (@dir_content) {
   push @html_files, "deploy/" . $_ if /.html$/;
 }

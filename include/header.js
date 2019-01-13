@@ -20,4 +20,3 @@ function toggleMenu() {
     siteHeader.setAttribute('style', 'display: none');
   }
 }
-
