@@ -3,9 +3,9 @@
 use strict;
 use warnings;
 
-use File::Find;
+use File::Find::Rule;
 
-my @html_files = File::Find::Rule->file()->name('*.html')->in('pages');
+my @html_files = File::Find::Rule->file()->name('*.html')->in('deploy');
 
 my $head = undef;
 {
