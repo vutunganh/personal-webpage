@@ -37,7 +37,7 @@ if [ $? -ne 0 ]; then
   exit 1;
 fi
 
-rm deploy/*.bak
+find deploy -name '*.bak' -delete
 
 if [ ${DRY_RUN} = false ]; then
   scp -r deploy/* "${USERNAME}"@"${SERVER_NAME}":"${TARGET_PATH}"
