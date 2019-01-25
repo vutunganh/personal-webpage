@@ -5,6 +5,7 @@ source ./runners/properties.sh
 
 DRY_RUN=false
 DONT_DELETE=false
+DEPLOY_FOLDER=deploy
 
 while [ $# -gt 0 ]; do
   key="$1"
@@ -27,8 +28,8 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-mkdir deploy
-cp -r pages/* *.css *.js include/*.js deploy
+mkdir "${DEPLOY_FOLDER}"
+cp -r pages/* *.css include/*.js "${DEPLOY_FOLDER}"
 
 ./runners/deploy.pl
 
@@ -37,13 +38,13 @@ if [ $? -ne 0 ]; then
   exit 1;
 fi
 
-find deploy -name '*.bak' -delete
+find "${DEPLOY_FOLDER}" -name '*.bak' -delete
 
 if [ ${DRY_RUN} = false ]; then
-  scp -r deploy/* "${USERNAME}"@"${SERVER_NAME}":"${TARGET_PATH}"
+  scp -r "${DEPLOY_FOLDER}"/* "${USERNAME}"@"${SERVER_NAME}":"${TARGET_PATH}"
   scp -r images "${USERNAME}"@"${SERVER_NAME}":"${TARGET_PATH}"
 fi
 
 if [ ${DONT_DELETE} = false ]; then
-  rm -r deploy
+  rm -r "${DEPLOY_FOLDER}"
 fi
